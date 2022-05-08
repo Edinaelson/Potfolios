@@ -7,7 +7,7 @@ public class HotelReservation {
     	
     	Calendar calendar = Calendar.getInstance();
     	
-    	calendar.set(2009,2,16); //15 (domingo) primeiro dia da semana (1)
+    	calendar.set(2009,2,15); //15 (domingo) primeiro dia da semana (1)
     	
     	int diaSemana = calendar.get(calendar.DAY_OF_WEEK);
     	int dia = calendar.get(calendar.DAY_OF_MONTH);
@@ -52,10 +52,12 @@ public class HotelReservation {
     		break;
     	}
     	
-    	float valorHotel = 160;
+    	float valorHotel = 220; 		//valor a ser alterado.
     	String nomeHotel = null;
-    	input = "Regular";
+    	input = "Rewards";				//nome a ser alterado
+    	
     	if(input.equals("Regular")) {
+    		
     		if (diaSemana > 1 && diaSemana < 7 && valorHotel == 110) {
     			nomeHotel = "Lakewood";
     		}
@@ -65,11 +67,20 @@ public class HotelReservation {
     		if (diaSemana > 1 && diaSemana < 7 && valorHotel == 160) {
     			nomeHotel = "Bridgewood";
     		}
-    		if(diaSemana == 1 || diaSemana == 7 && valorHotel == 80) {
-    			nomeHotel = "Lakewood";
+    		if(diaSemana == 1 || diaSemana == 7 && valorHotel == 60) {
+    			nomeHotel = "Bridgewood";
     		}
     		
-    		
+    	}
+    	
+    	
+    	if(input.equals("Rewards")) {
+    		if (diaSemana > 1 && diaSemana < 7 && valorHotel == 220) {
+    			nomeHotel = "Ridgewood";
+    		}
+    		if(diaSemana == 1 || diaSemana == 7 && valorHotel == 150) {
+    			nomeHotel = "Ridgewood";
+    		}
     	}
     	
         return nomeHotel;
