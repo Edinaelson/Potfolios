@@ -6,32 +6,13 @@ public class HotelReservation {
     public String getCheapestHotel (String input) {
     	
     	Calendar calendar = Calendar.getInstance();
-    	Calendar calendar1 = Calendar.getInstance();
-    	Calendar calendar2 = Calendar.getInstance();
     	
-    	
-    	calendar.set(2009,2,16);
-    	calendar1.set(2009,2,17);
-    	calendar2.set(2009,2,18);
+    	calendar.set(2009,2,16); //15 (domingo) primeiro dia da semana (1)
     	
     	int diaSemana = calendar.get(calendar.DAY_OF_WEEK);
     	int dia = calendar.get(calendar.DAY_OF_MONTH);
     	int mes = calendar.get(calendar.MONTH);
     	int ano = calendar.get(calendar.YEAR);
-    	
-    /* * @see #JANUARY
-     * @see #FEBRUARY
-     * @see #MARCH
-     * @see #APRIL
-     * @see #MAY
-     * @see #JUNE
-     * @see #JULY
-     * @see #AUGUST
-     * @see #SEPTEMBER
-     * @see #OCTOBER
-     * @see #NOVEMBER
-     * @see #DECEMBER
-    	 * */
     	
     	String mesNome = null;
     	switch(mes) {
@@ -45,14 +26,6 @@ public class HotelReservation {
     		mesNome = "Mar";
     		break;
     	}
-    	
-     /*@see #SUNDAY
-     * @see #MONDAY
-     * @see #TUESDAY
-     * @see #WEDNESDAY
-     * @see #THURSDAY
-     * @see #FRIDAY
-     * @see #SATURDAY*/
     	
     	String nomeDiaSemana = null;
     	switch(diaSemana) {
@@ -79,29 +52,27 @@ public class HotelReservation {
     		break;
     	}
     	
-    	float valorHotel = 110;
+    	float valorHotel = 160;
     	String nomeHotel = null;
     	input = "Regular";
     	if(input.equals("Regular")) {
     		if (diaSemana > 1 && diaSemana < 7 && valorHotel == 110) {
     			nomeHotel = "Lakewood";
     		}
+    		if(diaSemana == 1 || diaSemana == 7 && valorHotel == 80) {
+    			nomeHotel = "Lakewood";
+    		}
+    		if (diaSemana > 1 && diaSemana < 7 && valorHotel == 160) {
+    			nomeHotel = "Bridgewood";
+    		}
+    		if(diaSemana == 1 || diaSemana == 7 && valorHotel == 80) {
+    			nomeHotel = "Lakewood";
+    		}
+    		
+    		
     	}
     	
-    	
-    	
-    	String date1 = Integer.toString(dia)+mesNome+ano+nomeDiaSemana;
-    	String date2 = Integer.toString(17)+mesNome+ano+("(tues)");
-    	String date3 = Integer.toString(18)+mesNome+ano+("(wed)");
-    	
-    	
-    	
-    	//assertEquals("Lakewood", Hotel.getCheapestHotel("Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed)"));
         return nomeHotel;
-    }
-    
-    public void setData() {
-    	
     }
     
 }
