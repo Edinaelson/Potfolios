@@ -66,7 +66,7 @@ public class HotelReservation {
     		nomeDiaSemana = "(tues)";
     		break;
     	case 4: 
-    		nomeDiaSemana = "(wedn)";
+    		nomeDiaSemana = "(wed)";
     		break;
     	case 5:
     		nomeDiaSemana = "(thur)";
@@ -91,12 +91,13 @@ public class HotelReservation {
     	
     	
     	String date1 = Integer.toString(dia)+mesNome+ano+nomeDiaSemana;
-    	String date2 = Integer.toString(17)+mesNome+ano+nomeDiaSemana;
-    	String date3 = Integer.toString(18)+mesNome+ano+nomeDiaSemana;
+    	String date2 = Integer.toString(17)+mesNome+ano+("(tues)");
+    	String date3 = Integer.toString(18)+mesNome+ano+("(wed)");
+    	
     	
     	
     	//assertEquals("Lakewood", Hotel.getCheapestHotel("Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed)"));
-        return input+": "+date1+", "+date2+", "+date3;
+        return nomeHotel;
     }
     
     public void setData() {
