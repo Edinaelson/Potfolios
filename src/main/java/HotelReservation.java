@@ -1,11 +1,19 @@
+import static org.junit.Assert.assertEquals;
+
 import java.util.Calendar;
 
 public class HotelReservation {
     public String getCheapestHotel (String input) {
     	
     	Calendar calendar = Calendar.getInstance();
+    	Calendar calendar1 = Calendar.getInstance();
+    	Calendar calendar2 = Calendar.getInstance();
+    	
     	
     	calendar.set(2009,2,16);
+    	calendar1.set(2009,2,17);
+    	calendar2.set(2009,2,18);
+    	
     	int diaSemana = calendar.get(calendar.DAY_OF_WEEK);
     	int dia = calendar.get(calendar.DAY_OF_MONTH);
     	int mes = calendar.get(calendar.MONTH);
@@ -25,7 +33,7 @@ public class HotelReservation {
      * @see #DECEMBER
     	 * */
     	
-    	String mesNome;
+    	String mesNome = null;
     	switch(mes) {
     	case 0:
     		mesNome = "Jan";
@@ -46,34 +54,34 @@ public class HotelReservation {
      * @see #FRIDAY
      * @see #SATURDAY*/
     	
-    	String nomeDiaSemana;
+    	String nomeDiaSemana = null;
     	switch(diaSemana) {
     	case 1:
-    		nomeDiaSemana = "Sun";
+    		nomeDiaSemana = "(sun)";
     		break;
     	case 2:
-    		nomeDiaSemana = "Mon";
+    		nomeDiaSemana = "(mon)";
     		break;
     	case 3:
-    		nomeDiaSemana = "Tues";
+    		nomeDiaSemana = "(tues)";
     		break;
     	case 4: 
-    		nomeDiaSemana = "Wedn";
+    		nomeDiaSemana = "(wedn)";
     		break;
     	case 5:
-    		nomeDiaSemana = "Thur";
+    		nomeDiaSemana = "(thur)";
     		break;
     	case 6:
-    		nomeDiaSemana = "Fri";
+    		nomeDiaSemana = "(fri)";
     		break;
     	case 7: 
-    		nomeDiaSemana = "Sat";
+    		nomeDiaSemana = "(sat)";
     		break;
     	}
     	
     	float valorHotel = 110;
-    	String nomeHotel;
-    	
+    	String nomeHotel = null;
+    	input = "Regular";
     	if(input.equals("Regular")) {
     		if (diaSemana > 1 && diaSemana < 7 && valorHotel == 110) {
     			nomeHotel = "Lakewood";
@@ -82,20 +90,16 @@ public class HotelReservation {
     	
     	
     	
+    	String date1 = Integer.toString(dia)+mesNome+ano+nomeDiaSemana;
+    	String date2 = Integer.toString(17)+mesNome+ano+nomeDiaSemana;
+    	String date3 = Integer.toString(18)+mesNome+ano+nomeDiaSemana;
     	
     	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-        return "Cheapest hotel name";
+    	//assertEquals("Lakewood", Hotel.getCheapestHotel("Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed)"));
+        return input+": "+date1+", "+date2+", "+date3;
     }
     
-    public void lakewood() {
+    public void setData() {
     	
     }
     
