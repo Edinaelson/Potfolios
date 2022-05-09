@@ -6,6 +6,13 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("Hotel");
 		menu();
+		int diaSemana = calendario();
+		
+		if(diaSemana > 1 && diaSemana < 7) {
+			System.out.println("durante a semana");
+		}else {
+			System.out.println("Final de semana");
+		}
 	}
 	
 	public static void menu() {
@@ -22,23 +29,26 @@ public class Main {
 		}else {
 			tipoCliente = "Reward";
 		}
-		System.out.println("|Informe dia:----------------------------|");
-		int dia = input.nextInt();
-		System.out.println("|Informe mes:----------------------------|");
-		int mes = input.nextInt();
-		System.out.println("|Informe ano:----------------------------|");
-		int ano = input.nextInt();
-		calendar.set(ano,mes,dia);
-		//System.out.println("Dia: " + calendar.get(calendar.DAY_OF_WEEK));
-		int diaSemana = calendar.get(calendar.DAY_OF_WEEK);
-		int diaMes = calendar.get(calendar.DAY_OF_MONTH);
-		System.out.println("DIa do mes: " + diaMes);
-		System.out.println("dia da semana: " + diaSemana);
-		int mesano = calendar.get(calendar.MONTH);
-		System.out.println("mes: " + mesano);
-		
-		
-		
 	}
+	
+	public static int calendario() {
+		Calendar calendar = Calendar.getInstance();
+		
+		 int dia = calendar.get(calendar.DAY_OF_MONTH);
+		 int diaSemana = calendar.get(calendar.DAY_OF_WEEK);
+		 int ano = calendar.get(Calendar.YEAR);
+		 int mes = calendar.get(Calendar.MONTH);//mes 4 igual a maio
+		 
+		 System.out.println("Dia da semana: " + diaSemana);
+		 System.out.println("Dia do mes: " + dia);
+		 System.out.println("Ano: " + ano);
+		 System.out.println("Mes: " + mes);
+		 String formato = "Dia: " +dia+" mes: "+mes+" Ano: "+ano;
+		 System.out.println("Data: " + formato);
+		 
+		 return diaSemana;
+		 
+	}
+	
 	
 }
